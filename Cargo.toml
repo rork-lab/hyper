@@ -10,7 +10,7 @@ license = "MIT"
 authors = ["Sean McArthur <sean@seanmonstar.com>"]
 keywords = ["http", "hyper", "hyperium"]
 categories = ["network-programming", "web-programming::http-client", "web-programming::http-server"]
-edition = "2018"
+edition = "2021"
 
 include = [
   "Cargo.toml",
@@ -28,12 +28,12 @@ http = "0.2"
 http-body = "0.4"
 httpdate = "1.0"
 httparse = "1.8"
-h2 = { version = "0.3.24", optional = true }
+h2 = { version = "0.3", optional = true }
 itoa = "1"
 tracing = { version = "0.1", default-features = false, features = ["std"] }
-pin-project-lite = "0.2.4"
-tower-service = "0.3"
-tokio = { version = "1.27", features = ["sync"] }
+pin-project-lite = "0.2"
+tower-service = {version ="0.3", git = "https://github.com/rorkai/tower"}
+tokio = { version = "1", features = ["sync"] }
 want = "0.3"
 
 # Optional
@@ -45,7 +45,7 @@ socket2 = { version = ">=0.4.7, <0.6.0", optional = true, features = ["all"] }
 futures-util = { version = "0.3", default-features = false, features = ["alloc"] }
 matches = "0.1"
 num_cpus = "1.0"
-pretty_env_logger = "0.4"
+pretty_env_logger = "0.5"
 spmc = "0.3"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
@@ -62,11 +62,11 @@ tokio = { version = "1.27", features = [
 ] }
 tokio-test = "0.4"
 tokio-util = { version = "0.7", features = ["codec"] }
-tower = { version = "0.4", default-features = false, features = ["make", "util"] }
-url = "2.2"
+tower = { version = "0.4", git = "https://github.com/rorkai/tower", default-features = false, features = ["make", "util"] }
+url = "2"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos"))'.dev-dependencies]
-pnet_datalink = "0.27.2"
+pnet_datalink = "0.35"
 
 [features]
 # Nothing by default
